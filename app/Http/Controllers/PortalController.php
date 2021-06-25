@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SignUpRequest;
 use App\Services\Portal\SignUpService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 
 class PortalController extends Controller
 {
     /**
-     * @var SignUpService
+     * @var SignUpService $signUpService
      */
     protected SignUpService $signUpService;
 
@@ -25,8 +26,9 @@ class PortalController extends Controller
 
     /**
      * @param SignUpRequest $request
+     * @return JsonResponse
      */
-    public function signUp(SignUpRequest $request)
+    public function signUp(SignUpRequest $request): JsonResponse
     {
         try {
             DB::beginTransaction();
