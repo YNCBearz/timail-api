@@ -7,6 +7,7 @@ use App\Services\Portal\SignUpService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
+use Throwable;
 
 class PortalController extends Controller
 {
@@ -36,7 +37,7 @@ class PortalController extends Controller
             DB::commit();
 
             return response()->json(['data' => $user], Response::HTTP_CREATED);
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
             DB::rollback();
 
             return $this->errorHandling($th);
