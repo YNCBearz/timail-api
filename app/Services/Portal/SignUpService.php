@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Services\Login;
+namespace App\Services\Portal;
 
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class SignUpService
 {
@@ -26,7 +27,7 @@ class SignUpService
     {
         $data = [
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'name' => $request->name,
             'dob' => $request->dob,
         ];

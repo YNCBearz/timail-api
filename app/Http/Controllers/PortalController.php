@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SignUpRequest;
-use App\Services\Login\SignUpService;
-use Illuminate\Http\Request;
+use App\Services\Portal\SignUpService;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
-class LoginController extends Controller
+class PortalController extends Controller
 {
     /**
      * @var SignUpService
@@ -28,11 +29,15 @@ class LoginController extends Controller
     public function signUp(SignUpRequest $request)
     {
         try {
+            DB::beginTransaction();
             $user = $this->signUpService->createNewAccount($request);
+            DB::commit();
 
-            return response()->json(['data' => $user]);
+            return response()->json(['data' => $user], Response::HTTP_CREATED);
         } catch (\Throwable $th) {
-            throw $th;
+            DB::rollback();
+
+            return $this->errorHandling($th);
         }
     }
 }

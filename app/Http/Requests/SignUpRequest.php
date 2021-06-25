@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Symfony\Component\HttpFoundation\Response;
 
 class SignUpRequest extends FormRequest
 {
@@ -34,19 +35,6 @@ class SignUpRequest extends FormRequest
     }
 
     /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return  [
-            'email.required' => 'We need to know your email address!',
-            'email.unique' => 'Email exists!',
-        ];
-    }
-
-    /**
      * Handle a failed validation attempt.
      *
      * @param  Validator  $validator
@@ -55,6 +43,6 @@ class SignUpRequest extends FormRequest
      */
     protected function failedValidation(Validator $validator)
     {
-        throw new HttpResponseException(response()->json($validator->errors(), 422));
+        throw new HttpResponseException(response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY));
     }
 }

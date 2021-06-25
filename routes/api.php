@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PortalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 /**
  * Login API
  */
-Route::post('/users:sign-up', [LoginController::class, 'signUp']);
+Route::post('/users:sign-up', [PortalController::class, 'signUp']);
