@@ -2,6 +2,18 @@
 
 namespace {{ namespace }};
 
+use App\Models\{{ model }};
+
 class {{ class }} extends Repository
 {
+    /**
+     * @var {{ model }} $model
+     */
+    protected {{ model }} $model;
+
+    public function __construct({{ model }} $model)
+    {
+        $this->model = $model;
+    }
 }
+

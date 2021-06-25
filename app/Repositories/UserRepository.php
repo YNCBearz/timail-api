@@ -11,9 +11,9 @@ class UserRepository extends Repository
      */
     protected User $model;
 
-    public function __construct(User $user)
+    public function __construct(User $model)
     {
-        $this->model = $user;
+        $this->model = $model;
     }
 
     /**
