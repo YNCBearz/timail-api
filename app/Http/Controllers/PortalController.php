@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SignInRequest;
-use App\Http\Requests\SignUpRequest;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Services\Portal\SignUpService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
@@ -27,10 +27,10 @@ class PortalController extends Controller
     }
 
     /**
-     * @param SignUpRequest $request
+     * @param RegisterRequest $request
      * @return JsonResponse
      */
-    public function signUp(SignUpRequest $request): JsonResponse
+    public function register(RegisterRequest $request): JsonResponse
     {
         try {
             DB::beginTransaction();
@@ -55,10 +55,10 @@ class PortalController extends Controller
     /**
      * Get a JWT via given credentials.
      *
-     * @param SignInRequest $request
+     * @param LoginRequest $request
      * @return JsonResponse
      */
-    public function signIn(SignInRequest $request): JsonResponse
+    public function login(LoginRequest $request): JsonResponse
     {
         /**
          * NOTE.
@@ -95,7 +95,7 @@ class PortalController extends Controller
      *
      * @return JsonResponse
      */
-    public function logOut(): JsonResponse
+    public function logout(): JsonResponse
     {
         auth()->logout();
         return response()->json(['message' => 'User successfully signed out']);

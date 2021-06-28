@@ -25,15 +25,15 @@ Route::middleware('auth:api')->get(
 /**
  * Login API
  */
-Route::post('/users:sign-up', [PortalController::class, 'signUp']);
-Route::post('/users:sign-in', [PortalController::class, 'signIn']);
+Route::post('/users:register', [PortalController::class, 'register']);
+Route::post('/users:login', [PortalController::class, 'login']);
 
 Route::group(
     [
         'middleware' => 'api',
     ],
     function ($router) {
-        Route::post('/users:log-out', [PortalController::class, 'logOut']);
+        Route::post('/users:logout', [PortalController::class, 'logout']);
     }
 );
 
