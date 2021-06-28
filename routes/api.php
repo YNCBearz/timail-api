@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\PortalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,19 +20,3 @@ Route::middleware('auth:api')->get(
         return $request->user();
     }
 );
-
-/**
- * Login API
- */
-Route::post('/users:register', [PortalController::class, 'register']);
-Route::post('/users:login', [PortalController::class, 'login']);
-
-Route::group(
-    [
-        'middleware' => 'api',
-    ],
-    function ($router) {
-        Route::post('/users:logout', [PortalController::class, 'logout']);
-    }
-);
-
