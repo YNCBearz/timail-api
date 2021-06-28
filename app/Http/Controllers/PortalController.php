@@ -18,7 +18,7 @@ class PortalController extends Controller
     protected SignUpService $signUpService;
 
     /**
-     * LoginController constructor.
+     * PortalController constructor.
      * @param SignUpService $signUpService
      */
     public function __construct(SignUpService $signUpService)
@@ -88,5 +88,16 @@ class PortalController extends Controller
                 ],
             ]
         );
+    }
+
+    /**
+     * Log the user out (Invalidate the token).
+     *
+     * @return JsonResponse
+     */
+    public function logOut(): JsonResponse
+    {
+        auth()->logout();
+        return response()->json(['message' => 'User successfully signed out']);
     }
 }

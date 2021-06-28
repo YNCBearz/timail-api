@@ -15,12 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:api')->get(
+    '/user',
+    function (Request $request) {
+        return $request->user();
+    }
+);
 
 /**
  * Login API
  */
 Route::post('/users:sign-up', [PortalController::class, 'signUp']);
 Route::post('/users:sign-in', [PortalController::class, 'signIn']);
+
+Route::group(
+    [
+        'middleware' => 'api',
+    ],
+    function ($router) {
+        Route::post('/users:log-out', [PortalController::class, 'logOut']);
+    }
+);
+
