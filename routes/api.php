@@ -23,3 +23,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * Login API
  */
 Route::post('/users:sign-up', [PortalController::class, 'signUp']);
+Route::post('/users:sign-in', [PortalController::class, 'signIn']);

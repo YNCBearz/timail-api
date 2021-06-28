@@ -22,6 +22,12 @@ class Controller extends BaseController
     protected function errorHandling(Throwable $th): JsonResponse
     {
         Log::error($th);
-        return response()->json(['message' => 'Something went wrong'], Response::HTTP_INTERNAL_SERVER_ERROR);
+
+        return response()->json(
+            [
+                'message' => 'Something went wrong',
+            ],
+            Response::HTTP_INTERNAL_SERVER_ERROR
+        );
     }
 }
