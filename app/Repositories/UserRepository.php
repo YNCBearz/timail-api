@@ -22,7 +22,7 @@ class UserRepository extends Repository
      */
     public function create(array $data): User
     {
-        $user = new User;
+        $user = new $this->model;
 
         $user->email = $data['email'];
         $user->password = $data['password'];
