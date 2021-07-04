@@ -30,6 +30,7 @@ class RequestExecutionRepository extends Repository
         $model->ip = $data['ip'];
         $model->user_agent = $data['user_agent'];
         $model->create_user = $data['create_user'];
+        $model->status_code = $data['status_code'];
 
         $model->save();
         return true;

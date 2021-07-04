@@ -17,6 +17,7 @@ class CreateRequestExecutionsTable extends Migration
             $table->id();
             $table->tinyInteger('method')->comment('1:POST, 2:GET, 3:PATCH, 4:DELETE, 5:PUT');
             $table->string('path');
+            $table->smallInteger('status_code');
             $table->float('seconds', 4, 2);
             $table->string('ip');
             $table->string('user_agent');
