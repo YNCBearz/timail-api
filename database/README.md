@@ -4,5 +4,10 @@
 
 ### Refresh Database (for develop)
 ```zsh
-php artisan migration:fresh --seed
+php artisan migrate:fresh --seed
+```
+
+### Rollback Migration
+```zsh
+php artisan migrate:rollback
 ```
