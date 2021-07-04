@@ -18,7 +18,7 @@ class RequestExecution extends Model
      *
      * @var array
      */
-    protected static array $enums = [
+    protected static array $enumAttributes = [
         'method' => self::METHOD
     ];
 

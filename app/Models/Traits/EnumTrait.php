@@ -5,6 +5,13 @@ namespace App\Models\Traits;
 use Illuminate\Database\Eloquent\Concerns\HasAttributes;
 use Illuminate\Support\Str;
 
+/**
+ * Trait EnumTrait for Eloquent accessors & mutators.
+ *
+ * 1. Define $enumAttributes in Model.
+ * 2. Define enum of each attribute.
+ * 3. Use EnumTrait in Model class.
+ */
 trait EnumTrait
 {
     /**
@@ -17,7 +24,7 @@ trait EnumTrait
      */
     public function hasSetMutator($key)
     {
-        if ($this->isEnumsAttributes($key)) {
+        if ($this->isEnumAttributes($key)) {
             return true;
         }
 
@@ -35,8 +42,8 @@ trait EnumTrait
      */
     protected function setMutatedAttributeValue($key, $value)
     {
-        if ($this->isEnumsAttributes($key)) {
-            return $this->setMutatedAttributeValueByEnums($key, $value);
+        if ($this->isEnumAttributes($key)) {
+            return $this->setMutatedAttributeValueByEnum($key, $value);
         }
 
         return $this->{'set'.Str::studly($key).'Attribute'}($value);
@@ -46,9 +53,9 @@ trait EnumTrait
      * @param string $key
      * @return bool
      */
-    protected function isEnumsAttributes(string $key): bool
+    protected function isEnumAttributes(string $key): bool
     {
-        return array_key_exists($key, self::$enums);
+        return array_key_exists($key, self::$enumAttributes);
     }
 
     /**
@@ -56,10 +63,10 @@ trait EnumTrait
      * @param mixed $value
      * @return mixed
      */
-    private function setMutatedAttributeValueByEnums($key, $value)
+    private function setMutatedAttributeValueByEnum($key, $value)
     {
-        $lookup = self::$enums[$key];
-        return $this->attributes[$key] = $lookup[$value];
+        $enum = $this->enumByKey($key);
+        return $this->attributes[$key] = $enum[$value];
     }
 
     /**
@@ -72,7 +79,7 @@ trait EnumTrait
      */
     public function hasGetMutator($key)
     {
-        if ($this->isEnumsAttributes($key)) {
+        if ($this->isEnumAttributes($key)) {
             return true;
         }
 
@@ -90,8 +97,8 @@ trait EnumTrait
      */
     protected function mutateAttribute($key, $value)
     {
-        if ($this->isEnumsAttributes($key)) {
-            return $this->mutateAttributeByEnums($key, $value);
+        if ($this->isEnumAttributes($key)) {
+            return $this->mutateAttributeByEnum($key, $value);
         }
 
         return $this->{'get'.Str::studly($key).'Attribute'}($value);
@@ -102,11 +109,20 @@ trait EnumTrait
      * @param mixed $value
      * @return mixed
      */
-    private function mutateAttributeByEnums($key, $value)
+    private function mutateAttributeByEnum($key, $value)
     {
-        $lookup = self::$enums[$key];
+        $enum = $this->enumByKey($key);
 
-        $flipped = array_flip($lookup);
+        $flipped = array_flip($enum);
         return $flipped[$value];
+    }
+
+    /**
+     * @param string $key
+     * @return array|int[]|mixed
+     */
+    private function enumByKey(string $key)
+    {
+        return self::$enumAttributes[$key];
     }
 }
