@@ -2,14 +2,25 @@
 
 namespace App\Models;
 
+use App\Models\Traits\EnumTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class RequestExecution extends Model
 {
     use HasFactory;
+    use EnumTrait;
 
     const UPDATED_AT = null;
+
+    /**
+     * The attributes that are enum.
+     *
+     * @var array
+     */
+    protected static array $enums = [
+        'method' => self::METHOD
+    ];
 
     /**
      * @var array
@@ -21,22 +32,4 @@ class RequestExecution extends Model
         'DELETE' => 4,
         'PUT' => 5
     ];
-
-    /**
-     * @param string $value
-     */
-    public function setMethodAttribute(string $value)
-    {
-        $this->attributes['method'] = self::METHOD[$value];
-    }
-
-    /**
-     * @param int $value
-     * @return string
-     */
-    public function getMethodAttribute(int $value): string
-    {
-        $flipped = array_flip(self::METHOD);
-        return $flipped[$value];
-    }
 }

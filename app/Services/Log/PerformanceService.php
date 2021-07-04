@@ -28,7 +28,7 @@ class PerformanceService
             'seconds' => microtime(true) - LARAVEL_START,
             'ip' => $request->ip(),
             'user_agent' => $request->userAgent(),
-            'create_user' => auth()->user() ?? 0,
+            'create_user' => auth()->id() ?? 0,
             'status_code' => $response->getStatusCode()
         ];
 
