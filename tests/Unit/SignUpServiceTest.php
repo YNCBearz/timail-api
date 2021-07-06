@@ -25,11 +25,11 @@ class SignUpServiceTest extends TestCase
         $stubRequest->password = 123;
 
         $stubUserRepository = $this->createStub(UserRepository::class);
-        $this->instance(UserRepository::class, $stubUserRepository);
+        $this->app->instance(UserRepository::class, $stubUserRepository);
 
         $this->sut = $this->app->make(SignUpService::class);
 
-        //Assert
+        //Assert (For Facade)
         Hash::shouldReceive('make')->once()->with(123);
 
         //Act
