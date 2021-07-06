@@ -14,6 +14,13 @@ class RequestExecution extends Model
     const UPDATED_AT = null;
 
     /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = ['id'];
+
+    /**
      * The attributes that are enum.
      *
      * @var array
