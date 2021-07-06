@@ -36,4 +36,39 @@ class SignUpServiceTest extends TestCase
         $this->sut->createNewAccount($stubRequest);
     }
 
+    /**
+     * @test
+     */
+    public function GivenRequest_WhenCreateNewAccount_ThenCallRepository()
+    {
+        //Arrange
+        $stubRequest = $this->createStub(Request::class);
+        $stubRequest->email = 'bear@gmail.com';
+        $stubRequest->name = 'bear';
+        $stubRequest->dob = '2000-04-14';
+
+        Hash::shouldReceive('make')
+            ->andReturn(456);
+
+        $mockUserRepository = $this->createMock(UserRepository::class);
+        $this->app->instance(UserRepository::class, $mockUserRepository);
+
+        $this->sut = $this->app->make(SignUpService::class);
+
+        //Assert
+        $mockUserRepository
+            ->expects($this->once())
+            ->method('create')
+            ->with(
+                [
+                    'email' => 'bear@gmail.com',
+                    'password' => 456,
+                    'name' => 'bear',
+                    'dob' => '2000-04-14',
+                ]
+            );
+
+        //Act
+        $this->sut->createNewAccount($stubRequest);
+    }
 }
