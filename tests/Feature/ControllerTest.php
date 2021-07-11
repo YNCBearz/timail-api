@@ -22,8 +22,9 @@ class ControllerTest extends TestCase
     public function GivenThrowable_WhenErrorHandling_ThenCallLogFacade()
     {
         //Arrange
-        Log::spy();
         $stubThrowable = $this->createStub(Throwable::class);
+
+        Log::spy();
 
         $this->sut = app(Controller::class);
 
