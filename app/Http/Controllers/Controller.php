@@ -19,7 +19,7 @@ class Controller extends BaseController
      * @param Throwable $th
      * @return JsonResponse
      */
-    protected function errorHandling(Throwable $th): JsonResponse
+    public function errorHandling(Throwable $th): JsonResponse
     {
         Log::error($th);
 
