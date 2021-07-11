@@ -24,16 +24,16 @@ class SignUpServiceTest extends TestCase
         $stubRequest = $this->createStub(Request::class);
         $stubRequest->password = 123;
 
-        $stubUserRepository = $this->createStub(UserRepository::class);
-        $this->app->instance(UserRepository::class, $stubUserRepository);
+        $this->stub(UserRepository::class);
+        Hash::spy();
 
         $this->sut = $this->app->make(SignUpService::class);
 
-        //Assert (For Facade)
-        Hash::shouldReceive('make')->once()->with(123);
-
         //Act
         $this->sut->createNewAccount($stubRequest);
+
+        //Assert (For Facade)
+        Hash::shouldHaveReceived('make')->once()->with(123);
     }
 
     /**
@@ -49,16 +49,17 @@ class SignUpServiceTest extends TestCase
 
         Hash::shouldReceive('make')
             ->andReturn(456);
-
-        $mockUserRepository = $this->createMock(UserRepository::class);
-        $this->app->instance(UserRepository::class, $mockUserRepository);
+        $spyUserRepository = $this->spy(UserRepository::class);
 
         $this->sut = $this->app->make(SignUpService::class);
 
+        //Act
+        $this->sut->createNewAccount($stubRequest);
+
         //Assert
-        $mockUserRepository
-            ->expects($this->once())
-            ->method('create')
+        $spyUserRepository
+            ->shouldHaveReceived('create')
+            ->once()
             ->with(
                 [
                     'email' => 'bear@gmail.com',
@@ -67,8 +68,5 @@ class SignUpServiceTest extends TestCase
                     'dob' => '2000-04-14',
                 ]
             );
-
-        //Act
-        $this->sut->createNewAccount($stubRequest);
     }
 }
