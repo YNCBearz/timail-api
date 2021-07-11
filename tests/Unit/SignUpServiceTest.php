@@ -28,7 +28,7 @@ class SignUpServiceTest extends TestCase
 
         Hash::spy();
 
-        $this->sut = $this->app->make(SignUpService::class);
+        $this->sut = app(SignUpService::class);
 
         //Act
         $this->sut->createNewAccount($stubRequest);
@@ -53,7 +53,7 @@ class SignUpServiceTest extends TestCase
 
         $spyUserRepository = $this->spy(UserRepository::class);
 
-        $this->sut = $this->app->make(SignUpService::class);
+        $this->sut = app(SignUpService::class);
 
         //Act
         $this->sut->createNewAccount($stubRequest);
