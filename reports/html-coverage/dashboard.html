@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Users/bear/Documents/timail-api/app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="_css/style.css" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/Users/bear/Documents/timail-api/app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Console/Commands/RepositoryMakeCommand.php.html#10">App\Console\Commands\RepositoryMakeCommand</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Commands/ServiceMakeCommand.php.html#7">App\Console\Commands\ServiceMakeCommand</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exceptions/Handler.php.html#8">App\Exceptions\Handler</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Controller.php.html#14">App\Http\Controllers\Controller</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PortalController.php.html#13">App\Http\Controllers\PortalController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/Authenticate.php.html#7">App\Http\Middleware\Authenticate</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/MeasureResponseTime.php.html#10">App\Http\Middleware\MeasureResponseTime</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#10">App\Http\Middleware\RedirectIfAuthenticated</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/TrustHosts.php.html#7">App\Http\Middleware\TrustHosts</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/LoginRequest.php.html#9">App\Http\Requests\LoginRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RegisterRequest.php.html#7">App\Http\Requests\RegisterRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#10">App\Models\User</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/BroadcastServiceProvider.php.html#8">App\Providers\BroadcastServiceProvider</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Repository.php.html#7">App\Repositories\Repository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/RequestExecutionRepository.php.html#7">App\Repositories\RequestExecutionRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UserRepository.php.html#7">App\Repositories\UserRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/Log/PerformanceService.php.html#9">App\Services\Log\PerformanceService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#15">App\Models\Traits\EnumTrait</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Kernel.php.html#8">App\Console\Kernel</a></td><td class="text-right">75%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#15">App\Models\Traits\EnumTrait</a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Console/Commands/RepositoryMakeCommand.php.html#10">App\Console\Commands\RepositoryMakeCommand</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Http/Controllers/PortalController.php.html#13">App\Http\Controllers\PortalController</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Http/Middleware/MeasureResponseTime.php.html#10">App\Http\Middleware\MeasureResponseTime</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#10">App\Http\Middleware\RedirectIfAuthenticated</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Http/Requests/LoginRequest.php.html#9">App\Http\Requests\LoginRequest</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Console/Commands/ServiceMakeCommand.php.html#7">App\Console\Commands\ServiceMakeCommand</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Middleware/Authenticate.php.html#7">App\Http\Middleware\Authenticate</a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Console/Commands/RepositoryMakeCommand.php.html#38"><abbr title="App\Console\Commands\RepositoryMakeCommand::getStub">getStub</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Commands/RepositoryMakeCommand.php.html#49"><abbr title="App\Console\Commands\RepositoryMakeCommand::getDefaultNamespace">getDefaultNamespace</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Commands/RepositoryMakeCommand.php.html#59"><abbr title="App\Console\Commands\RepositoryMakeCommand::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Commands/RepositoryMakeCommand.php.html#73"><abbr title="App\Console\Commands\RepositoryMakeCommand::createModel">createModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Commands/RepositoryMakeCommand.php.html#90"><abbr title="App\Console\Commands\RepositoryMakeCommand::getOptions">getOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Commands/RepositoryMakeCommand.php.html#106"><abbr title="App\Console\Commands\RepositoryMakeCommand::replaceClass">replaceClass</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Commands/ServiceMakeCommand.php.html#35"><abbr title="App\Console\Commands\ServiceMakeCommand::getStub">getStub</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Commands/ServiceMakeCommand.php.html#46"><abbr title="App\Console\Commands\ServiceMakeCommand::getDefaultNamespace">getDefaultNamespace</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/Kernel.php.html#25"><abbr title="App\Console\Kernel::schedule">schedule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exceptions/Handler.php.html#35"><abbr title="App\Exceptions\Handler::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Controller.php.html#22"><abbr title="App\Http\Controllers\Controller::errorHandling">errorHandling</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PortalController.php.html#24"><abbr title="App\Http\Controllers\PortalController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PortalController.php.html#33"><abbr title="App\Http\Controllers\PortalController::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PortalController.php.html#61"><abbr title="App\Http\Controllers\PortalController::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PortalController.php.html#79"><abbr title="App\Http\Controllers\PortalController::createNewToken">createNewToken</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/PortalController.php.html#98"><abbr title="App\Http\Controllers\PortalController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/Authenticate.php.html#15"><abbr title="App\Http\Middleware\Authenticate::redirectTo">redirectTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/MeasureResponseTime.php.html#17"><abbr title="App\Http\Middleware\MeasureResponseTime::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/MeasureResponseTime.php.html#29"><abbr title="App\Http\Middleware\MeasureResponseTime::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/MeasureResponseTime.php.html#48"><abbr title="App\Http\Middleware\MeasureResponseTime::terminate">terminate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#20"><abbr title="App\Http\Middleware\RedirectIfAuthenticated::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/TrustHosts.php.html#14"><abbr title="App\Http\Middleware\TrustHosts::hosts">hosts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/LoginRequest.php.html#16"><abbr title="App\Http\Requests\LoginRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/LoginRequest.php.html#26"><abbr title="App\Http\Requests\LoginRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/LoginRequest.php.html#39"><abbr title="App\Http\Requests\LoginRequest::withValidator">withValidator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RegisterRequest.php.html#14"><abbr title="App\Http\Requests\RegisterRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RegisterRequest.php.html#24"><abbr title="App\Http\Requests\RegisterRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#53"><abbr title="App\Models\User::getJWTIdentifier">getJWTIdentifier</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#63"><abbr title="App\Models\User::getJWTCustomClaims">getJWTCustomClaims</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/BroadcastServiceProvider.php.html#15"><abbr title="App\Providers\BroadcastServiceProvider::boot">boot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/Repository.php.html#15"><abbr title="App\Repositories\Repository::insert">insert</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/RequestExecutionRepository.php.html#14"><abbr title="App\Repositories\RequestExecutionRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/RequestExecutionRepository.php.html#23"><abbr title="App\Repositories\RequestExecutionRepository::insertResponseTime">insertResponseTime</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UserRepository.php.html#14"><abbr title="App\Repositories\UserRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UserRepository.php.html#23"><abbr title="App\Repositories\UserRepository::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/Log/PerformanceService.php.html#16"><abbr title="App\Services\Log\PerformanceService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/Log/PerformanceService.php.html#21"><abbr title="App\Services\Log\PerformanceService::logResponseTime">logResponseTime</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#25"><abbr title="App\Models\Traits\EnumTrait::hasSetMutator">hasSetMutator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#43"><abbr title="App\Models\Traits\EnumTrait::setMutatedAttributeValue">setMutatedAttributeValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#56"><abbr title="App\Models\Traits\EnumTrait::isEnumAttributes">isEnumAttributes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#66"><abbr title="App\Models\Traits\EnumTrait::setMutatedAttributeValueByEnum">setMutatedAttributeValueByEnum</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#80"><abbr title="App\Models\Traits\EnumTrait::hasGetMutator">hasGetMutator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#98"><abbr title="App\Models\Traits\EnumTrait::mutateAttribute">mutateAttribute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#112"><abbr title="App\Models\Traits\EnumTrait::mutateAttributeByEnum">mutateAttributeByEnum</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#124"><abbr title="App\Models\Traits\EnumTrait::enumByKey">enumByKey</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/RouteServiceProvider.php.html#60"><abbr title="App\Providers\RouteServiceProvider::configureRateLimiting">configureRateLimiting</abbr></a></td><td class="text-right">75%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Console/Commands/RepositoryMakeCommand.php.html#59"><abbr title="App\Console\Commands\RepositoryMakeCommand::handle">handle</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Http/Middleware/RedirectIfAuthenticated.php.html#20"><abbr title="App\Http\Middleware\RedirectIfAuthenticated::handle">handle</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Http/Middleware/MeasureResponseTime.php.html#29"><abbr title="App\Http\Middleware\MeasureResponseTime::handle">handle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Console/Commands/RepositoryMakeCommand.php.html#49"><abbr title="App\Console\Commands\RepositoryMakeCommand::getDefaultNamespace">getDefaultNamespace</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Console/Commands/ServiceMakeCommand.php.html#46"><abbr title="App\Console\Commands\ServiceMakeCommand::getDefaultNamespace">getDefaultNamespace</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/PortalController.php.html#33"><abbr title="App\Http\Controllers\PortalController::register">register</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Middleware/Authenticate.php.html#15"><abbr title="App\Http\Middleware\Authenticate::redirectTo">redirectTo</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Middleware/MeasureResponseTime.php.html#48"><abbr title="App\Http\Middleware\MeasureResponseTime::terminate">terminate</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Requests/LoginRequest.php.html#39"><abbr title="App\Http\Requests\LoginRequest::withValidator">withValidator</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#25"><abbr title="App\Models\Traits\EnumTrait::hasSetMutator">hasSetMutator</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#43"><abbr title="App\Models\Traits\EnumTrait::setMutatedAttributeValue">setMutatedAttributeValue</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#80"><abbr title="App\Models\Traits\EnumTrait::hasGetMutator">hasGetMutator</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Models/Traits/EnumTrait.php.html#98"><abbr title="App\Models\Traits\EnumTrait::mutateAttribute">mutateAttribute</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Providers/RouteServiceProvider.php.html#60"><abbr title="App\Providers\RouteServiceProvider::configureRateLimiting">configureRateLimiting</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.6</a> using <a href="https://secure.php.net/" target="_top">PHP 8.0.7</a> with <a href="https://xdebug.org/">Xdebug 3.0.4</a> and <a href="https://phpunit.de/">PHPUnit 9.5.6</a> at Sun Jul 11 11:14:04 UTC 2021.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js" type="text/javascript"></script>
+  <script src="_js/d3.min.js" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([18,0,0,0,0,0,0,0,1,0,1,11], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([45,0,0,0,0,0,0,0,1,0,0,10], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,10,"<a href=\"Console\/Commands\/RepositoryMakeCommand.php.html#10\">App\\Console\\Commands\\RepositoryMakeCommand<\/a>"],[0,3,"<a href=\"Console\/Commands\/ServiceMakeCommand.php.html#7\">App\\Console\\Commands\\ServiceMakeCommand<\/a>"],[75,2,"<a href=\"Console\/Kernel.php.html#8\">App\\Console\\Kernel<\/a>"],[0,1,"<a href=\"Exceptions\/Handler.php.html#8\">App\\Exceptions\\Handler<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Controller.php.html#14\">App\\Http\\Controllers\\Controller<\/a>"],[0,6,"<a href=\"Http\/Controllers\/PortalController.php.html#13\">App\\Http\\Controllers\\PortalController<\/a>"],[100,0,"<a href=\"Http\/Kernel.php.html#8\">App\\Http\\Kernel<\/a>"],[0,2,"<a href=\"Http\/Middleware\/Authenticate.php.html#7\">App\\Http\\Middleware\\Authenticate<\/a>"],[100,0,"<a href=\"Http\/Middleware\/EncryptCookies.php.html#7\">App\\Http\\Middleware\\EncryptCookies<\/a>"],[0,6,"<a href=\"Http\/Middleware\/MeasureResponseTime.php.html#10\">App\\Http\\Middleware\\MeasureResponseTime<\/a>"],[100,0,"<a href=\"Http\/Middleware\/PreventRequestsDuringMaintenance.php.html#7\">App\\Http\\Middleware\\PreventRequestsDuringMaintenance<\/a>"],[0,4,"<a href=\"Http\/Middleware\/RedirectIfAuthenticated.php.html#10\">App\\Http\\Middleware\\RedirectIfAuthenticated<\/a>"],[100,0,"<a href=\"Http\/Middleware\/TrimStrings.php.html#7\">App\\Http\\Middleware\\TrimStrings<\/a>"],[0,1,"<a href=\"Http\/Middleware\/TrustHosts.php.html#7\">App\\Http\\Middleware\\TrustHosts<\/a>"],[100,0,"<a href=\"Http\/Middleware\/TrustProxies.php.html#8\">App\\Http\\Middleware\\TrustProxies<\/a>"],[100,0,"<a href=\"Http\/Middleware\/VerifyCsrfToken.php.html#7\">App\\Http\\Middleware\\VerifyCsrfToken<\/a>"],[0,4,"<a href=\"Http\/Requests\/LoginRequest.php.html#9\">App\\Http\\Requests\\LoginRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/RegisterRequest.php.html#7\">App\\Http\\Requests\\RegisterRequest<\/a>"],[100,0,"<a href=\"Models\/RequestExecution.php.html#9\">App\\Models\\RequestExecution<\/a>"],[0,2,"<a href=\"Models\/User.php.html#10\">App\\Models\\User<\/a>"],[100,2,"<a href=\"Providers\/AppServiceProvider.php.html#7\">App\\Providers\\AppServiceProvider<\/a>"],[100,1,"<a href=\"Providers\/AuthServiceProvider.php.html#8\">App\\Providers\\AuthServiceProvider<\/a>"],[0,1,"<a href=\"Providers\/BroadcastServiceProvider.php.html#8\">App\\Providers\\BroadcastServiceProvider<\/a>"],[100,1,"<a href=\"Providers\/EventServiceProvider.php.html#10\">App\\Providers\\EventServiceProvider<\/a>"],[96.55172413793103,7,"<a href=\"Providers\/RouteServiceProvider.php.html#11\">App\\Providers\\RouteServiceProvider<\/a>"],[0,1,"<a href=\"Repositories\/Repository.php.html#7\">App\\Repositories\\Repository<\/a>"],[0,2,"<a href=\"Repositories\/RequestExecutionRepository.php.html#7\">App\\Repositories\\RequestExecutionRepository<\/a>"],[0,2,"<a href=\"Repositories\/UserRepository.php.html#7\">App\\Repositories\\UserRepository<\/a>"],[0,2,"<a href=\"Services\/Log\/PerformanceService.php.html#9\">App\\Services\\Log\\PerformanceService<\/a>"],[100,2,"<a href=\"Services\/Portal\/SignUpService.php.html#10\">App\\Services\\Portal\\SignUpService<\/a>"],[0,12,"<a href=\"Models\/Traits\/EnumTrait.php.html#15\">App\\Models\\Traits\\EnumTrait<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Console\/Commands\/RepositoryMakeCommand.php.html#38\">App\\Console\\Commands\\RepositoryMakeCommand::getStub<\/a>"],[0,2,"<a href=\"Console\/Commands\/RepositoryMakeCommand.php.html#49\">App\\Console\\Commands\\RepositoryMakeCommand::getDefaultNamespace<\/a>"],[0,4,"<a href=\"Console\/Commands\/RepositoryMakeCommand.php.html#59\">App\\Console\\Commands\\RepositoryMakeCommand::handle<\/a>"],[0,1,"<a href=\"Console\/Commands\/RepositoryMakeCommand.php.html#73\">App\\Console\\Commands\\RepositoryMakeCommand::createModel<\/a>"],[0,1,"<a href=\"Console\/Commands\/RepositoryMakeCommand.php.html#90\">App\\Console\\Commands\\RepositoryMakeCommand::getOptions<\/a>"],[0,1,"<a href=\"Console\/Commands\/RepositoryMakeCommand.php.html#106\">App\\Console\\Commands\\RepositoryMakeCommand::replaceClass<\/a>"],[0,1,"<a href=\"Console\/Commands\/ServiceMakeCommand.php.html#35\">App\\Console\\Commands\\ServiceMakeCommand::getStub<\/a>"],[0,2,"<a href=\"Console\/Commands\/ServiceMakeCommand.php.html#46\">App\\Console\\Commands\\ServiceMakeCommand::getDefaultNamespace<\/a>"],[0,1,"<a href=\"Console\/Kernel.php.html#25\">App\\Console\\Kernel::schedule<\/a>"],[100,1,"<a href=\"Console\/Kernel.php.html#35\">App\\Console\\Kernel::commands<\/a>"],[0,1,"<a href=\"Exceptions\/Handler.php.html#35\">App\\Exceptions\\Handler::register<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Controller.php.html#22\">App\\Http\\Controllers\\Controller::errorHandling<\/a>"],[0,1,"<a href=\"Http\/Controllers\/PortalController.php.html#24\">App\\Http\\Controllers\\PortalController::__construct<\/a>"],[0,2,"<a href=\"Http\/Controllers\/PortalController.php.html#33\">App\\Http\\Controllers\\PortalController::register<\/a>"],[0,1,"<a href=\"Http\/Controllers\/PortalController.php.html#61\">App\\Http\\Controllers\\PortalController::login<\/a>"],[0,1,"<a href=\"Http\/Controllers\/PortalController.php.html#79\">App\\Http\\Controllers\\PortalController::createNewToken<\/a>"],[0,1,"<a href=\"Http\/Controllers\/PortalController.php.html#98\">App\\Http\\Controllers\\PortalController::logout<\/a>"],[0,2,"<a href=\"Http\/Middleware\/Authenticate.php.html#15\">App\\Http\\Middleware\\Authenticate::redirectTo<\/a>"],[0,1,"<a href=\"Http\/Middleware\/MeasureResponseTime.php.html#17\">App\\Http\\Middleware\\MeasureResponseTime::__construct<\/a>"],[0,3,"<a href=\"Http\/Middleware\/MeasureResponseTime.php.html#29\">App\\Http\\Middleware\\MeasureResponseTime::handle<\/a>"],[0,2,"<a href=\"Http\/Middleware\/MeasureResponseTime.php.html#48\">App\\Http\\Middleware\\MeasureResponseTime::terminate<\/a>"],[0,4,"<a href=\"Http\/Middleware\/RedirectIfAuthenticated.php.html#20\">App\\Http\\Middleware\\RedirectIfAuthenticated::handle<\/a>"],[0,1,"<a href=\"Http\/Middleware\/TrustHosts.php.html#14\">App\\Http\\Middleware\\TrustHosts::hosts<\/a>"],[0,1,"<a href=\"Http\/Requests\/LoginRequest.php.html#16\">App\\Http\\Requests\\LoginRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/LoginRequest.php.html#26\">App\\Http\\Requests\\LoginRequest::rules<\/a>"],[0,2,"<a href=\"Http\/Requests\/LoginRequest.php.html#39\">App\\Http\\Requests\\LoginRequest::withValidator<\/a>"],[0,1,"<a href=\"Http\/Requests\/RegisterRequest.php.html#14\">App\\Http\\Requests\\RegisterRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/RegisterRequest.php.html#24\">App\\Http\\Requests\\RegisterRequest::rules<\/a>"],[0,1,"<a href=\"Models\/User.php.html#53\">App\\Models\\User::getJWTIdentifier<\/a>"],[0,1,"<a href=\"Models\/User.php.html#63\">App\\Models\\User::getJWTCustomClaims<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#14\">App\\Providers\\AppServiceProvider::register<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#24\">App\\Providers\\AppServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/AuthServiceProvider.php.html#24\">App\\Providers\\AuthServiceProvider::boot<\/a>"],[0,1,"<a href=\"Providers\/BroadcastServiceProvider.php.html#15\">App\\Providers\\BroadcastServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/EventServiceProvider.php.html#28\">App\\Providers\\EventServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/RouteServiceProvider.php.html#36\">App\\Providers\\RouteServiceProvider::boot<\/a>"],[75,2,"<a href=\"Providers\/RouteServiceProvider.php.html#60\">App\\Providers\\RouteServiceProvider::configureRateLimiting<\/a>"],[100,2,"<a href=\"Providers\/RouteServiceProvider.php.html#67\">App\\Providers\\RouteServiceProvider::definePublicRoutes<\/a>"],[100,2,"<a href=\"Providers\/RouteServiceProvider.php.html#77\">App\\Providers\\RouteServiceProvider::defineAuthRoutes<\/a>"],[0,1,"<a href=\"Repositories\/Repository.php.html#15\">App\\Repositories\\Repository::insert<\/a>"],[0,1,"<a href=\"Repositories\/RequestExecutionRepository.php.html#14\">App\\Repositories\\RequestExecutionRepository::__construct<\/a>"],[0,1,"<a href=\"Repositories\/RequestExecutionRepository.php.html#23\">App\\Repositories\\RequestExecutionRepository::insertResponseTime<\/a>"],[0,1,"<a href=\"Repositories\/UserRepository.php.html#14\">App\\Repositories\\UserRepository::__construct<\/a>"],[0,1,"<a href=\"Repositories\/UserRepository.php.html#23\">App\\Repositories\\UserRepository::create<\/a>"],[0,1,"<a href=\"Services\/Log\/PerformanceService.php.html#16\">App\\Services\\Log\\PerformanceService::__construct<\/a>"],[0,1,"<a href=\"Services\/Log\/PerformanceService.php.html#21\">App\\Services\\Log\\PerformanceService::logResponseTime<\/a>"],[100,1,"<a href=\"Services\/Portal\/SignUpService.php.html#17\">App\\Services\\Portal\\SignUpService::__construct<\/a>"],[100,1,"<a href=\"Services\/Portal\/SignUpService.php.html#26\">App\\Services\\Portal\\SignUpService::createNewAccount<\/a>"],[0,2,"<a href=\"Models\/Traits\/EnumTrait.php.html#25\">App\\Models\\Traits\\EnumTrait::hasSetMutator<\/a>"],[0,2,"<a href=\"Models\/Traits\/EnumTrait.php.html#43\">App\\Models\\Traits\\EnumTrait::setMutatedAttributeValue<\/a>"],[0,1,"<a href=\"Models\/Traits\/EnumTrait.php.html#56\">App\\Models\\Traits\\EnumTrait::isEnumAttributes<\/a>"],[0,1,"<a href=\"Models\/Traits\/EnumTrait.php.html#66\">App\\Models\\Traits\\EnumTrait::setMutatedAttributeValueByEnum<\/a>"],[0,2,"<a href=\"Models\/Traits\/EnumTrait.php.html#80\">App\\Models\\Traits\\EnumTrait::hasGetMutator<\/a>"],[0,2,"<a href=\"Models\/Traits\/EnumTrait.php.html#98\">App\\Models\\Traits\\EnumTrait::mutateAttribute<\/a>"],[0,1,"<a href=\"Models\/Traits\/EnumTrait.php.html#112\">App\\Models\\Traits\\EnumTrait::mutateAttributeByEnum<\/a>"],[0,1,"<a href=\"Models\/Traits\/EnumTrait.php.html#124\">App\\Models\\Traits\\EnumTrait::enumByKey<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
