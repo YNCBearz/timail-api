@@ -25,6 +25,7 @@ class SignUpServiceTest extends TestCase
         $stubRequest->password = 123;
 
         $this->stub(UserRepository::class);
+
         Hash::spy();
 
         $this->sut = $this->app->make(SignUpService::class);
@@ -49,6 +50,7 @@ class SignUpServiceTest extends TestCase
 
         Hash::shouldReceive('make')
             ->andReturn(456);
+
         $spyUserRepository = $this->spy(UserRepository::class);
 
         $this->sut = $this->app->make(SignUpService::class);
