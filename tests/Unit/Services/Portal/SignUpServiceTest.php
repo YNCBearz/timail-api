@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\Http\Controllers\Services\Portal;
 
 use App\Repositories\UserRepository;
 use App\Services\Portal\SignUpService;

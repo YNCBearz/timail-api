@@ -62,7 +62,7 @@ class PortalController extends Controller
     {
         /**
          * NOTE.
-         * We had check User & password in SignInRequest.
+         * We had check User & password in LoginRequest.
          */
         $credentials = $request->validated();
         $token = auth()->attempt($credentials);
