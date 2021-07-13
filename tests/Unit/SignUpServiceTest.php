@@ -24,7 +24,7 @@ class SignUpServiceTest extends TestCase
         $stubRequest = $this->createStub(Request::class);
         $stubRequest->password = 123;
 
-        $this->stub(UserRepository::class);
+        $this->dummy(UserRepository::class);
 
         Hash::spy();
 

@@ -10,16 +10,15 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication;
 
     /**
-     * Mock an instance (stub) of an object in the container.
+     * Mock an instance of an object (dummy) in the container.
      *
      * @param string $abstract
-     * @return object
      *
      * @see InteractsWithContainer::mock()
      */
-    protected function stub(string $abstract): object
+    protected function dummy(string $abstract)
     {
         $stubInstance = $this->createStub($abstract);
-        return $this->app->instance($abstract, $stubInstance);
+        $this->app->instance($abstract, $stubInstance);
     }
 }
