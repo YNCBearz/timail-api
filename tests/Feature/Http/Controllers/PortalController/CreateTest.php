@@ -11,6 +11,8 @@ class CreateTest extends TestCase
 
     /**
      * @group api/users:register
+     * @group Web
+     *
      * @test
      */
     public function GivenData_WhenRegister_ThenReturnCreated()
@@ -37,5 +39,37 @@ class CreateTest extends TestCase
                     ],
                 ]
             );
+    }
+
+    /**
+     * @group api/users:register
+     * @group DataBase
+     *
+     * @test
+     */
+    public function GivenData_WhenRegister_ThenInsert()
+    {
+        $this->post(
+            '/api/users:register',
+            [
+                'email' => 'bear07111530@gmail.com',
+                'password' => 123,
+                'name' => 'RegisterTest',
+                'dob' => '2000-04-14',
+            ]
+        );
+
+        /**
+         * NOTE.
+         * password would be hashed.
+         */
+        $this->assertDatabaseHas(
+            'users',
+            [
+                'email' => 'bear07111530@gmail.com',
+                'name' => 'RegisterTest',
+                'dob' => '2000-04-14',
+            ]
+        );
     }
 }
