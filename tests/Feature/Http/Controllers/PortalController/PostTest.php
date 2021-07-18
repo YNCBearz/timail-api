@@ -13,7 +13,7 @@ class PostTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * @group api/users:register
+     * @group /api/users:register
      * @group Web
      *
      * @test
@@ -45,8 +45,8 @@ class PostTest extends TestCase
     }
 
     /**
-     * @group api/users:register
-     * @group DataBase
+     * @group /api/users:register
+     * @group DB
      *
      * @test
      */
@@ -77,7 +77,7 @@ class PostTest extends TestCase
     }
 
     /**
-     * @group api/users:register
+     * @group /api/users:register
      * @group Web
      *
      * @test
@@ -106,7 +106,7 @@ class PostTest extends TestCase
     }
 
     /**
-     * @group api/users:register
+     * @group /api/users:register
      * @group Web
      *
      * @test

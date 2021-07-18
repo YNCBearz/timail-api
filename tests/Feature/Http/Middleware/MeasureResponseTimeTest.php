@@ -41,7 +41,7 @@ class MeasureResponseTimeTest extends TestCase
     }
 
     /**
-     * @group Database
+     * @group DB
      *
      * @test
      */
