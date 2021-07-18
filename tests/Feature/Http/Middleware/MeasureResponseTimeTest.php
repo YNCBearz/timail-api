@@ -19,7 +19,8 @@ class MeasureResponseTimeTest extends TestCase
          * But I found no other solution yet.
          *
          * NOTE.
-         * We are sharing const LARAVEL_START in every test.
+         * We are sharing constant LARAVEL_START in every test.
+         * Constant won't be redefined before every test run.
          */
         if (!defined('LARAVEL_START')) {
             define('LARAVEL_START', microtime(true));
@@ -31,7 +32,7 @@ class MeasureResponseTimeTest extends TestCase
      *
      * @test
      */
-    public function GivenRequest_WhenExcuted_ThenReturnOK()
+    public function GivenRequest_WhenExecuted_ThenReturnOK()
     {
         $user = User::factory()->create();
         $response = $this->actingAs($user)->get('/');
@@ -44,10 +45,10 @@ class MeasureResponseTimeTest extends TestCase
      *
      * @test
      */
-    public function GivenRequest_WhenExcuted_ThenInsertData()
+    public function GivenRequest_WhenExecuted_ThenInsertData()
     {
         $user = User::factory()->create();
-        $response = $this->actingAs($user)->get('/');
+        $this->actingAs($user)->get('/');
 
         $this->assertDatabaseHas(
             'request_executions',

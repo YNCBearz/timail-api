@@ -29,7 +29,7 @@ class PerformanceService
             'ip' => $request->ip(),
             'user_agent' => $request->userAgent(),
             'create_user' => auth()->id() ?? 0,
-            'status_code' => $response->getStatusCode()
+            'status_code' => $response->getStatusCode(),
         ];
 
         $this->requestExecutionRepository->insertResponseTime($data);
