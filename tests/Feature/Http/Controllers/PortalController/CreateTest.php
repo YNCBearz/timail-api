@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Controllers\PortalController;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -17,7 +18,7 @@ class CreateTest extends TestCase
      */
     public function GivenData_WhenRegister_ThenReturnCreated()
     {
-        $response = $this->post(
+        $response = $this->postJson(
             '/api/users:register',
             [
                 'email' => 'bear07111530@gmail.com',
@@ -49,7 +50,7 @@ class CreateTest extends TestCase
      */
     public function GivenData_WhenRegister_ThenInsert()
     {
-        $this->post(
+        $this->postJson(
             '/api/users:register',
             [
                 'email' => 'bear07111530@gmail.com',
@@ -71,5 +72,34 @@ class CreateTest extends TestCase
                 'dob' => '2000-04-14',
             ]
         );
+    }
+
+    /**
+     * @group api/users:register
+     * @group Web
+     *
+     * @test
+     */
+    public function GivenUserData_WhenRegister_ThenUnprocessedEntity()
+    {
+        User::factory()->defaultPassword()->create(
+            [
+                'email' => 'bear07111530@gmail.com',
+                'name' => 'RegisterTest',
+                'dob' => '2000-04-14',
+            ]
+        );
+
+        $response = $this->postJson(
+            '/api/users:register',
+            [
+                'email' => 'bear07111530@gmail.com',
+                'password' => 123,
+                'name' => 'RegisterTest',
+                'dob' => '2000-04-14',
+            ]
+        );
+
+        $response->assertStatus(422);
     }
 }

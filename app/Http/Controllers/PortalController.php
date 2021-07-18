@@ -32,6 +32,10 @@ class PortalController extends Controller
      */
     public function register(RegisterRequest $request): JsonResponse
     {
+        /**
+         * NOTE.
+         * We had check unique email in RegisterRequest.
+         */
         try {
             DB::beginTransaction();
             $user = $this->signUpService->createNewAccount($request);
@@ -98,6 +102,7 @@ class PortalController extends Controller
     public function logout(): JsonResponse
     {
         auth()->logout();
+
         return response()->json(['message' => 'User successfully signed out']);
     }
 }
