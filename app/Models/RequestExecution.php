@@ -29,9 +29,6 @@ class RequestExecution extends Model
         'method' => self::METHOD
     ];
 
-    /**
-     * @var array
-     */
     const METHOD = [
         'POST' => 1,
         'GET' => 2,

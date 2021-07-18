@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         User::factory()->create(
             [
                 'email' => 'system@timail.org',
-                'password' => bcrypt('secret'),
+                'password' => bcrypt(env('SYSTEM_PASSWORD')),
                 'name' => 'System',
             ]
         );
