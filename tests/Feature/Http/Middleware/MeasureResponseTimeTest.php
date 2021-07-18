@@ -17,6 +17,9 @@ class MeasureResponseTimeTest extends TestCase
         /**
          * A little weird here to define LARAVEL_START here.
          * But I found no other solution yet.
+         *
+         * NOTE.
+         * We are sharing const LARAVEL_START in every test.
          */
         if (!defined('LARAVEL_START')) {
             define('LARAVEL_START', microtime(true));
