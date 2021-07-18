@@ -131,4 +131,31 @@ class PostTest extends TestCase
         $response->assertStatus(500);
     }
 
+    /**
+     * @group /api/users:login
+     * @group Web
+     *
+     * @test
+     */
+    public function GivenCorrectPassword_WhenLogin_ReturnOK()
+    {
+        User::factory()->defaultPassword()->create(
+            [
+                'email' => 'bear07111530@gmail.com',
+                'name' => 'RegisterTest',
+                'dob' => '2000-04-14',
+            ]
+        );
+
+        $response = $this->postJson(
+            '/api/users:login',
+            [
+                'email' => 'bear07111530@gmail.com',
+                'password' => 123,
+            ]
+        );
+
+        $response->assertStatus(200);
+    }
+
 }

@@ -14,7 +14,7 @@ class UserFactory extends Factory
      */
     protected $model = User::class;
 
-    const PASSWORD_DEFAULT = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
+    const PASSWORD_DEFAULT_HASHED = '$2y$10$dxxuckFSzBx7a0qzuSjHKeQ.f1.R0YHpeTV4oaq/HV2PHqgGlEeXK';
 
     /**
      * Define the model's default state.
@@ -28,7 +28,7 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'dob' => '2021-06-21',
 //            'email_verified_at' => now(),
-            'password' => self::PASSWORD_DEFAULT, // password
+            'password' => self::PASSWORD_DEFAULT_HASHED, // password
 //            'remember_token' => Str::random(10),
         ];
     }
@@ -57,7 +57,7 @@ class UserFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'password' => self::PASSWORD_DEFAULT, // password
+                'password' => self::PASSWORD_DEFAULT_HASHED, // password
             ];
         });
     }
