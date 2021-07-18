@@ -8,7 +8,7 @@ use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class CreateTest extends TestCase
+class PostTest extends TestCase
 {
     use RefreshDatabase;
 
