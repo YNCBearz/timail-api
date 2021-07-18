@@ -14,14 +14,15 @@ class UserFactory extends Factory
      */
     protected $model = User::class;
 
-    const PASSWORD_DEFAULT_HASHED = '$2y$10$dxxuckFSzBx7a0qzuSjHKeQ.f1.R0YHpeTV4oaq/HV2PHqgGlEeXK';
+    const PASSWORD_DEFAULT_HASHED = '$2y$10$z4PlHFAsy8Hao26Q72DWOu5JmUmH.sFalpPXWQ6RAA2gFWAuDOndC';
+    const PASSWORD_DEFAULT = 'timail-testing';
 
     /**
      * Define the model's default state.
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => $this->faker->name(),
@@ -48,15 +49,27 @@ class UserFactory extends Factory
     }
 
     /**
-     * NOTE.
-     * Only for test
-     *
      * @return Factory
      */
     public function defaultPassword(): Factory
     {
         return $this->state(function (array $attributes) {
             return [
+                'password' => self::PASSWORD_DEFAULT_HASHED, // password
+            ];
+        });
+    }
+
+    /**
+     * @return Factory
+     */
+    public function defaultUser(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'name' => 'Sherrinford',
+                'email' => 'sherrinford@timail.org',
+                'dob' => '2000-12-25',
                 'password' => self::PASSWORD_DEFAULT_HASHED, // password
             ];
         });

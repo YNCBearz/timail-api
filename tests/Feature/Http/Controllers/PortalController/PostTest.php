@@ -20,13 +20,15 @@ class PostTest extends TestCase
      */
     public function GivenData_WhenRegister_ThenReturnCreated()
     {
+        $data = User::factory()->defaultUser()->make();
+
         $response = $this->postJson(
             '/api/users:register',
             [
-                'email' => 'bear07111530@gmail.com',
-                'password' => 123,
-                'name' => 'RegisterTest',
-                'dob' => '2000-04-14',
+                'email' => $data->email,
+                'password' => $data->password,
+                'name' => $data->name,
+                'dob' => $data->dob,
             ]
         );
 
@@ -35,9 +37,9 @@ class PostTest extends TestCase
                 [
                     'data' => [
                         'user' => [
-                            'email' => 'bear07111530@gmail.com',
-                            'name' => 'RegisterTest',
-                            'dob' => '2000-04-14',
+                            'email' => $data->email,
+                            'name' => $data->name,
+                            'dob' => $data->dob,
                         ],
                     ],
                 ]
@@ -52,26 +54,22 @@ class PostTest extends TestCase
      */
     public function GivenData_WhenRegister_ThenInsertData()
     {
+        $data = User::factory()->defaultUser()->make();
+
         $this->postJson(
             '/api/users:register',
             [
-                'email' => 'bear07111530@gmail.com',
-                'password' => 123,
-                'name' => 'RegisterTest',
-                'dob' => '2000-04-14',
+                'email' => $data->email,
+                'password' => $data->password,
+                'name' => $data->name,
+                'dob' => $data->dob,
             ]
         );
 
-        /**
-         * NOTE.
-         * password would be hashed.
-         */
         $this->assertDatabaseHas(
             'users',
             [
-                'email' => 'bear07111530@gmail.com',
-                'name' => 'RegisterTest',
-                'dob' => '2000-04-14',
+                'email' => $data->email,
             ]
         );
     }
@@ -82,23 +80,21 @@ class PostTest extends TestCase
      *
      * @test
      */
-    public function GivenUserData_WhenRegister_ThenUnprocessedEntity()
+    public function GivenRegisteredEmail_WhenRegister_ThenUnprocessedEntity()
     {
-        User::factory()->defaultPassword()->create(
-            [
-                'email' => 'bear07111530@gmail.com',
-                'name' => 'RegisterTest',
-                'dob' => '2000-04-14',
-            ]
-        );
+        $data = User::factory()->defaultUser()->create();
 
+        /**
+         * NOTE.
+         * $data->password had been hashed.
+         */
         $response = $this->postJson(
             '/api/users:register',
             [
-                'email' => 'bear07111530@gmail.com',
-                'password' => 123,
-                'name' => 'RegisterTest',
-                'dob' => '2000-04-14',
+                'email' => $data->email,
+                'password' => $data->password,
+                'name' => $data->name,
+                'dob' => $data->dob,
             ]
         );
 
@@ -113,6 +109,8 @@ class PostTest extends TestCase
      */
     public function GivenData_WhenRegisterThrowException_ThenReturnInternalServerError()
     {
+        $data = User::factory()->defaultUser()->make();
+
         $stubSignUpService = $this->mock(SignUpService::class);
         $stubSignUpService
             ->shouldReceive('createNewAccount')
@@ -121,10 +119,10 @@ class PostTest extends TestCase
         $response = $this->postJson(
             '/api/users:register',
             [
-                'email' => 'bear07111530@gmail.com',
-                'password' => 123,
-                'name' => 'RegisterTest',
-                'dob' => '2000-04-14',
+                'email' => $data->email,
+                'password' => $data->password,
+                'name' => $data->name,
+                'dob' => $data->dob,
             ]
         );
 
@@ -139,19 +137,14 @@ class PostTest extends TestCase
      */
     public function GivenCorrectPassword_WhenLogin_ReturnOK()
     {
-        User::factory()->defaultPassword()->create(
-            [
-                'email' => 'bear07111530@gmail.com',
-                'name' => 'RegisterTest',
-                'dob' => '2000-04-14',
-            ]
-        );
+        $data = User::factory()->defaultUser()->create();
+        $originalPassword = User::factory()::PASSWORD_DEFAULT;
 
         $response = $this->postJson(
             '/api/users:login',
             [
-                'email' => 'bear07111530@gmail.com',
-                'password' => 123,
+                'email' => $data->email,
+                'password' => $originalPassword,
             ]
         );
 
