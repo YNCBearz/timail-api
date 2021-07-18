@@ -32,7 +32,7 @@ class MeasureResponseTime
 
         // Add response time as an HTTP header. For better accuracy ensure this middleware
         // is added at the end of the list of global middlewares in the Kernel.php file
-        if (defined('LARAVEL_START') && $response instanceof Response) {
+        if ((defined('LARAVEL_START') && $response instanceof Response)) {
             $response->headers->add(['X-RESPONSE-TIME' => microtime(true) - LARAVEL_START]);
         }
 

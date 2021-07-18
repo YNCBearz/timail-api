@@ -48,7 +48,7 @@ class CreateTest extends TestCase
      *
      * @test
      */
-    public function GivenData_WhenRegister_ThenInsert()
+    public function GivenData_WhenRegister_ThenInsertData()
     {
         $this->postJson(
             '/api/users:register',
