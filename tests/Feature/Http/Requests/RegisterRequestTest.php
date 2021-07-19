@@ -18,7 +18,7 @@ class RegisterRequestTest extends TestCase
      *
      * @test
      */
-    public function GivenNotValidRequest_WhenRegister_ThenReturnValidationErrors(array $data, array $errors)
+    public function GivenNotValidRequest_WhenRegister_ThenValidationErrors(array $data, array $errors)
     {
         $response = $this->postJson(
             '/api/users:register',
@@ -55,6 +55,49 @@ class RegisterRequestTest extends TestCase
              */
             [['name' => 123], ['name']],
             [['dob' => 123], ['dob']],
+        ];
+    }
+
+    /**
+     * @group /api/users:register
+     * @group Web
+     *
+     * @dataProvider validRequest
+     *
+     * @test
+     */
+    public function GivenValidRequest_WhenRegister_ThenMissingValidationErrors(array $data, array $keys)
+    {
+        $response = $this->postJson(
+            '/api/users:register',
+            $data
+        );
+
+        $response->assertJsonMissingValidationErrors(
+            $keys
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function validRequest(): array
+    {
+        return [
+            /**
+             * email
+             */
+            [['email' => 'bear@gmail.com'], ['email']],
+
+            /**
+             * name
+             */
+            [['name' => 'bear'], ['name']],
+
+            /**
+             * dob
+             */
+            [['dob' => '2020-04-14'], ['dob']],
         ];
     }
 }
