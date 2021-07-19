@@ -14,97 +14,47 @@ class RegisterRequestTest extends TestCase
      * @group /api/users:register
      * @group Web
      *
-     * @test
-     */
-    public function GivenNoneBody_WhenRegister_ThenReturnRequiredKeys()
-    {
-        $response = $this->postJson(
-            '/api/users:register',
-            [
-            ]
-        );
-
-        $response->assertStatus(422)
-            ->assertJsonValidationErrors(
-                [
-                    'email',
-                    'password',
-                    'name',
-                    'dob',
-                ]
-            );
-    }
-
-    /**
-     * @group /api/users:register
-     * @group Web
+     * @dataProvider notValidRequest
      *
      * @test
      */
-    public function GivenNotRealEmails_WhenRegister_ThenReturnValidationErrors()
+    public function GivenNotValidRequest_WhenRegister_ThenReturnValidationErrors(array $data, array $errors)
     {
         $response = $this->postJson(
             '/api/users:register',
-            [
-                'email' => 'bear@gmail.con',
-            ]
+            $data
         );
 
-        $response->assertStatus(422)
-            ->assertJsonValidationErrors(
-                [
-                    'email',
-                ]
-            );
+        $response->assertJsonValidationErrors(
+            $errors
+        );
     }
 
     /**
-     * @group /api/users:register
-     * @group Web
-     *
-     * @test
+     * @return array
      */
-    public function GivenRegisteredEmail_WhenRegisterAgain_ThenUnprocessedEntity()
+    public function notValidRequest(): array
     {
-        $data = User::factory()->defaultUser()->create();
+        return [
+            /**
+             * required
+             */
+            [[], ['email']],
+            [[], ['password']],
+            [[], ['name']],
+            [[], ['dob']],
 
-        $response = $this->postJson(
-            '/api/users:register',
-            [
-                'email' => $data->email,
-            ]
-        );
+            /**
+             * email
+             */
+            [['email' => 'bear@gmail.con'], ['email']],
+            [['email' => 'bear@gmail'], ['email']],
 
-        $response->assertStatus(422)
-            ->assertJsonValidationErrors(
-                [
-                    'email',
-                ]
-            );
-    }
-
-    /**
-     * @group /api/users:register
-     * @group Web
-     *
-     * @test
-     */
-    public function GivenNotValidName_WhenRegister_ThenReturnValidationErrors()
-    {
-        $data = User::factory()->defaultUser()->make();
-
-        $response = $this->postJson(
-            '/api/users:register',
-            [
-                'name' => 777,
-            ]
-        );
-
-        $response->assertStatus(422)
-            ->assertJsonValidationErrors(
-                [
-                    'name',
-                ]
-            );
+            /**
+             * name
+             */
+            [['name' => 123], ['name']],
+            [['dob' => 123], ['dob']],
+        ];
     }
 }
