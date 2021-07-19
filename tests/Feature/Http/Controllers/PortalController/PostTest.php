@@ -148,7 +148,7 @@ class PostTest extends TestCase
             ]
         );
 
-        $response->assertOk()
+        $response->assertStatus(200)
             ->assertJsonStructure(
                 [
                     'access_token',
@@ -157,7 +157,31 @@ class PostTest extends TestCase
                     'data' => [
                         'user',
                     ],
+                ]
+            );
+    }
 
+    /**
+     * @group /api/users:register
+     * @group Web
+     *
+     * @test
+     */
+    public function GivenEmailWithoutPassword_WhenRegister_ThenReturnUnprocessableEntity()
+    {
+        $data = User::factory()->defaultUser()->make();
+
+        $response = $this->postJson(
+            '/api/users:register',
+            [
+                'email' => $data->email,
+            ]
+        );
+
+        $response->assertStatus(422)
+            ->assertJsonValidationErrors(
+                [
+                    'password',
                 ]
             );
     }
