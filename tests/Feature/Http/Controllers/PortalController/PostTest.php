@@ -148,7 +148,18 @@ class PostTest extends TestCase
             ]
         );
 
-        $response->assertStatus(200);
+        $response->assertOk()
+            ->assertJsonStructure(
+                [
+                    'access_token',
+                    'token_type',
+                    'expires_in',
+                    'data' => [
+                        'user',
+                    ],
+
+                ]
+            );
     }
 
 }
