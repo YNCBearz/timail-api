@@ -80,33 +80,6 @@ class PostTest extends TestCase
      *
      * @test
      */
-    public function GivenRegisteredEmail_WhenRegister_ThenUnprocessedEntity()
-    {
-        $data = User::factory()->defaultUser()->create();
-
-        /**
-         * NOTE.
-         * $data->password had been hashed.
-         */
-        $response = $this->postJson(
-            '/api/users:register',
-            [
-                'email' => $data->email,
-                'password' => $data->password,
-                'name' => $data->name,
-                'dob' => $data->dob,
-            ]
-        );
-
-        $response->assertStatus(422);
-    }
-
-    /**
-     * @group /api/users:register
-     * @group Web
-     *
-     * @test
-     */
     public function GivenData_WhenRegisterThrowException_ThenReturnInternalServerError()
     {
         $data = User::factory()->defaultUser()->make();
@@ -160,30 +133,4 @@ class PostTest extends TestCase
                 ]
             );
     }
-
-    /**
-     * @group /api/users:register
-     * @group Web
-     *
-     * @test
-     */
-    public function GivenEmailWithoutPassword_WhenRegister_ThenReturnUnprocessableEntity()
-    {
-        $data = User::factory()->defaultUser()->make();
-
-        $response = $this->postJson(
-            '/api/users:register',
-            [
-                'email' => $data->email,
-            ]
-        );
-
-        $response->assertStatus(422)
-            ->assertJsonValidationErrors(
-                [
-                    'password',
-                ]
-            );
-    }
-
 }
