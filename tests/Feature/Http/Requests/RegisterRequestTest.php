@@ -16,6 +16,54 @@ class RegisterRequestTest extends TestCase
      *
      * @test
      */
+    public function GivenNoneBody_WhenRegister_ThenReturnRequiredKeys()
+    {
+        $response = $this->postJson(
+            '/api/users:register',
+            [
+            ]
+        );
+
+        $response->assertStatus(422)
+            ->assertJsonValidationErrors(
+                [
+                    'email',
+                    'password',
+                    'name',
+                    'dob',
+                ]
+            );
+    }
+
+    /**
+     * @group /api/users:register
+     * @group Web
+     *
+     * @test
+     */
+    public function GivenNotRealEmails_WhenRegister_ThenReturnValidationErrors()
+    {
+        $response = $this->postJson(
+            '/api/users:register',
+            [
+                'email' => 'bear@gmail.con',
+            ]
+        );
+
+        $response->assertStatus(422)
+            ->assertJsonValidationErrors(
+                [
+                    'email',
+                ]
+            );
+    }
+
+    /**
+     * @group /api/users:register
+     * @group Web
+     *
+     * @test
+     */
     public function GivenRegisteredEmail_WhenRegisterAgain_ThenUnprocessedEntity()
     {
         $data = User::factory()->defaultUser()->create();
@@ -32,7 +80,7 @@ class RegisterRequestTest extends TestCase
                 [
                     'email',
                 ]
-            );;
+            );
     }
 
     /**
@@ -41,21 +89,21 @@ class RegisterRequestTest extends TestCase
      *
      * @test
      */
-    public function GivenEmailWithoutPassword_WhenRegister_ThenReturnUnprocessableEntity()
+    public function GivenNotValidName_WhenRegister_ThenReturnValidationErrors()
     {
         $data = User::factory()->defaultUser()->make();
 
         $response = $this->postJson(
             '/api/users:register',
             [
-                'email' => $data->email,
+                'name' => 777,
             ]
         );
 
         $response->assertStatus(422)
             ->assertJsonValidationErrors(
                 [
-                    'password',
+                    'name',
                 ]
             );
     }
