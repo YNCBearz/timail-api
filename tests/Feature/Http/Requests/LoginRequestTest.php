@@ -15,7 +15,7 @@ class LoginRequestTest extends TestCase
      *
      * @test
      */
-    public function GivenNotExistUser_WhenLogin_ThenReturnUnauthorized()
+    public function GivenNotExistedUser_WhenLogin_ThenReturnUnauthorized()
     {
         $response = $this->postJson(
             '/api/users:login',

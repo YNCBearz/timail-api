@@ -133,4 +133,19 @@ class PostTest extends TestCase
                 ]
             );
     }
+
+    /**
+     * @group /api/users:logout
+     * @group Web
+     *
+     * @test
+     */
+    public function GivenNotLoginRequest_WhenLogOut_ThenReturnUnauthorized()
+    {
+        $response = $this->postJson(
+            '/api/users:logout',
+        );
+
+        $response->assertStatus(401);
+    }
 }
