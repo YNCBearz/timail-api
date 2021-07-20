@@ -103,6 +103,9 @@ class PortalController extends Controller
     {
         auth()->logout();
 
-        return response()->json(['message' => 'User successfully signed out']);
+        return response()->json(
+            ['message' => 'User successfully signed out'],
+            Response::HTTP_RESET_CONTENT
+        );
     }
 }

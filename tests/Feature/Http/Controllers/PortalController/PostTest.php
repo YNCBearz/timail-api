@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Services\Portal\SignUpService;
 use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
 class PostTest extends TestCase
@@ -140,12 +141,32 @@ class PostTest extends TestCase
      *
      * @test
      */
-    public function GivenNotLoginRequest_WhenLogOut_ThenReturnUnauthorized()
+    public function GivenNotLoginRequest_WhenLogout_ThenReturnUnauthorized()
     {
-        $response = $this->postJson(
+        $response = $this->deleteJson(
             '/api/users:logout',
         );
 
         $response->assertStatus(401);
     }
+
+    /**
+     * @group /api/users:logout
+     * @group Web
+     *
+     * @test
+     */
+    public function GivenLoginRequest_WhenLogout_ThenReturnOK()
+    {
+        $user = User::factory()->defaultUser()->create();
+        $token = Auth::tokenById($user->id);
+
+        $response = $this->withHeader('Authorization', 'Bearer '.$token)
+            ->deleteJson(
+                '/api/users:logout',
+            );
+
+        $response->assertStatus(205);
+    }
+
 }
