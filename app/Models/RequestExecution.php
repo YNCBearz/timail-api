@@ -34,6 +34,7 @@ class RequestExecution extends Model
         'GET' => 2,
         'PATCH' => 3,
         'DELETE' => 4,
-        'PUT' => 5
+        'PUT' => 5,
+        'OPTIONS' => 6
     ];
 }
