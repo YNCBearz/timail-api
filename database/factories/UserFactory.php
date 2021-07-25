@@ -27,7 +27,7 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'dob' => '2021-06-21',
+            'birth' => '2021-06-21',
 //            'email_verified_at' => now(),
             'password' => self::PASSWORD_DEFAULT_HASHED, // password
 //            'remember_token' => Str::random(10),
@@ -69,7 +69,7 @@ class UserFactory extends Factory
             return [
                 'name' => 'Sherrinford',
                 'email' => 'sherrinford@timail.org',
-                'dob' => '2000-12-25',
+                'birth' => '2000-12-25',
                 'password' => self::PASSWORD_DEFAULT_HASHED, // password
             ];
         });

@@ -42,7 +42,7 @@ class RegisterRequestTest extends TestCase
             [[], ['email']],
             [[], ['password']],
             [[], ['name']],
-            [[], ['dob']],
+            [[], ['birth']],
 
             /**
              * email
@@ -54,7 +54,7 @@ class RegisterRequestTest extends TestCase
              * name
              */
             [['name' => 123], ['name']],
-            [['dob' => 123], ['dob']],
+            [['birth' => 123], ['birth']],
         ];
     }
 
@@ -95,9 +95,9 @@ class RegisterRequestTest extends TestCase
             [['name' => 'bear'], ['name']],
 
             /**
-             * dob
+             * birth
              */
-            [['dob' => '2020-04-14'], ['dob']],
+            [['birth' => '2020-04-14'], ['birth']],
         ];
     }
 }

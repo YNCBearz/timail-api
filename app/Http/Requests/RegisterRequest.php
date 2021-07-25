@@ -27,7 +27,7 @@ class RegisterRequest extends FormRequest
             'email' => 'required|email:dns,rfc|unique:users',
             'password' => 'required',
             'name' => 'required|string',
-            'dob' => 'required|date',
+            'birth' => 'required|date',
         ];
     }
 }

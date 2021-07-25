@@ -29,7 +29,7 @@ class PostTest extends TestCase
                 'email' => $data->email,
                 'password' => $data->password,
                 'name' => $data->name,
-                'dob' => $data->dob,
+                'birth' => $data->birth,
             ]
         );
 
@@ -40,7 +40,7 @@ class PostTest extends TestCase
                         'user' => [
                             'email' => $data->email,
                             'name' => $data->name,
-                            'dob' => $data->dob,
+                            'birth' => $data->birth,
                         ],
                     ],
                 ]
@@ -63,7 +63,7 @@ class PostTest extends TestCase
                 'email' => $data->email,
                 'password' => $data->password,
                 'name' => $data->name,
-                'dob' => $data->dob,
+                'birth' => $data->birth,
             ]
         );
 
@@ -96,7 +96,7 @@ class PostTest extends TestCase
                 'email' => $data->email,
                 'password' => $data->password,
                 'name' => $data->name,
-                'dob' => $data->dob,
+                'birth' => $data->birth,
             ]
         );
 

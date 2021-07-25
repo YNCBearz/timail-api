@@ -46,7 +46,7 @@ class SignUpServiceTest extends TestCase
         $stubRequest = $this->createStub(Request::class);
         $stubRequest->email = 'bear@gmail.com';
         $stubRequest->name = 'bear';
-        $stubRequest->dob = '2000-04-14';
+        $stubRequest->birth = '2000-04-14';
 
         Hash::shouldReceive('make')
             ->andReturn(456);
@@ -67,7 +67,7 @@ class SignUpServiceTest extends TestCase
                     'email' => 'bear@gmail.com',
                     'password' => 456,
                     'name' => 'bear',
-                    'dob' => '2000-04-14',
+                    'birth' => '2000-04-14',
                 ]
             );
     }

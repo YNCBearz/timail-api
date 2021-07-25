@@ -29,7 +29,7 @@ class SignUpService
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'name' => $request->name,
-            'dob' => $request->dob,
+            'birth' => $request->birth,
         ];
 
         return $this->userRepository->create($data);
