@@ -15,7 +15,7 @@ class CreateRequestExecutionsTable extends Migration
     {
         Schema::create('request_executions', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('method')->comment('1:POST, 2:GET, 3:PATCH, 4:DELETE, 5:PUT');
+            $table->tinyInteger('method')->comment('1:POST, 2:GET, 3:PATCH, 4:DELETE, 5:PUT, 6:OPTIONS');
             $table->string('path');
             $table->smallInteger('status_code');
             $table->float('seconds', 4, 2);
