@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 /**
  * Trait EnumTrait for Eloquent accessors & mutators.
  *
- * 1. Define $enumAttributes in Model.
+ * 1. Define static function enumAttributes() in Model.
  * 2. Define enum of each attribute.
  * 3. Use EnumTrait in Model class.
  */
@@ -55,7 +55,7 @@ trait EnumTrait
      */
     protected function isEnumAttributes(string $key): bool
     {
-        return array_key_exists($key, self::$enumAttributes);
+        return array_key_exists($key, self::enumAttributes());
     }
 
     /**
@@ -123,6 +123,6 @@ trait EnumTrait
      */
     private function enumByKey(string $key)
     {
-        return self::$enumAttributes[$key];
+        return self::enumAttributes()[$key];
     }
 }
